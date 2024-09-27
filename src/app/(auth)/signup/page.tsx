@@ -4,7 +4,7 @@ import { Logo } from '@/components/LogoComponent'
 import Link from 'next/link'
 const Signup = () => {
   return (
-    <div className="h-screen w-full flex justify-center px-5 bg-[url('/quoraBG.jpg')] dark:bg-[url('/quoraBG.jpg')] bg-black items-center">
+    <div className="h-screen w-full flex justify-center px-5 bg-[url('/QuoraBG.jpg')] dark:bg-[url('/QuoraBG.jpg')] bg-black items-center">
       <div className="h-fit w-full flex flex-col py-4 px-10 gap-3 bg-zinc-900 rounded-t-xl">
           <Logo />
           <p>A place to share knowledge and better understand the world</p>

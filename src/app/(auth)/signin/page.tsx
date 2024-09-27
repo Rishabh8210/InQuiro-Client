@@ -4,7 +4,7 @@ import { Logo } from '@/components/LogoComponent'
 import Link from 'next/link'
 const Signin = () => {
   return (
-    <div className="h-screen w-full flex justify-center px-5 bg-[url('/quoraBG.webp')] dark:bg-[url('/quoraBG.webp')] bg-black items-center">
+    <div className="h-screen w-full flex justify-center px-5 bg-[url('/QuoraBG.jpg')] dark:bg-[url('/QuoraBG.jpg')] bg-black items-center">
       <div className="h-fit w-full flex flex-col py-7 px-10 gap-5 bg-zinc-900 rounded-b-xl">
           <Logo />
           <p>Unlock curiosity, one question at a time.</p>
