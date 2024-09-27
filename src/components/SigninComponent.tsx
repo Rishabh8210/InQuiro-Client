@@ -20,10 +20,9 @@ export function SigninComponent() {
     const [errors, setErrors] = useState<Partial<FormData>>({});
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value} = e.target;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value
+            [e.target.name]: e.target.value
         }))
     }
 

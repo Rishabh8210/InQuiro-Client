@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { z } from 'zod'
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
+
 
 const formSchema = z.object({
     name: z.string().min(1, 'Name is required'),
