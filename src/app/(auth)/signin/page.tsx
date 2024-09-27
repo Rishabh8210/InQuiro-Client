@@ -8,7 +8,7 @@ const Signin = () => {
       <div className="h-fit w-full flex flex-col py-7 px-10 gap-5 bg-zinc-900 rounded-b-xl">
           <Logo />
           <p>Unlock curiosity, one question at a time.</p>
-          <h3 className='text-2xl font-bold text-center underline text-red-600 font-serif'>SignIn</h3>
+          <h3 className='text-2xl font-bold text-center underline text-red-600 font-serif'>Sign In</h3>
           <SigninComponent />
           <span className='font-medium'>Create a new account? <Link className='font-semibold text-red-600' href='/signup'>Sign up</Link></span> 
       </div>
