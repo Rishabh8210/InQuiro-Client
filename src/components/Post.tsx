@@ -1,12 +1,12 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ProfileHeader from './ProfileHeader'
 import Link from 'next/link'
 import { PostAttributes } from './MainBody'
 export const Post = (postData: PostAttributes) => {
     const [isContentLong, setContentLong] = useState(false);
     const [resizeTextContent, setResizedTextContent] = useState(postData.content.text)
-    
+
     function checkTextSize() {
         const requiredTextSize = (postData.content.imageLink) ? 200 : 300;  
         let newResizedTextContent = '';

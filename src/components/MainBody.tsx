@@ -16,8 +16,8 @@ export function MainBody() {
     return (
         <div className='h-full w-full p-3 flex flex-col gap-5'>
             {
-                postData.map((data: PostAttributes) => {
-                    return <Post {...data}/>
+                postData.map((data: PostAttributes, ind) => {
+                    return <Post {...data} key={ind}/>
                 })
             }
         </div>
