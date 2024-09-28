@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import { z } from 'zod'
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
-
 
 const formSchema = z.object({
     name: z.string().min(1, 'Name is required'),
@@ -36,10 +34,9 @@ export function SignupComponent() {
 
     // handleChange function to update formData
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value
+            [e.target.name]: e.target.value
         }))
     }
 
