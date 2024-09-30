@@ -19,7 +19,7 @@ export const Post = (postData: PostAttributes) => {
     }
     checkTextSize()
     return (
-        <div className='min-h-[40vh] w-full border-2 p-2 rounded-lg border-opacity-20'>
+        <div className='h-fit w-full border-2 p-2 rounded-lg border-opacity-5'>
             <ProfileHeader {...postData} />
             <div className='h-fit w-full p-2 flex flex-col gap-3'>
                 {/* Post Content */}
