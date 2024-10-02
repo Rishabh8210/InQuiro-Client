@@ -3,6 +3,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { z } from 'zod'
 
+import { NEXT_BACKEND_URL, AUTH_SIGN_IN_URL } from "@/utils/constant";
+import axios from "axios";
+
 const formSchema = z.object({
     email: z.string().email(),
     password: z.string().min(6, 'Password must be atleast 6 characters').max(50, 'Password is too long')
@@ -26,7 +29,7 @@ export function SigninComponent() {
         }))
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const response = formSchema.safeParse(formData);
@@ -40,7 +43,18 @@ export function SigninComponent() {
         } else {
             console.log("Submitted successfully", formData);
             setErrors({});
-            router.push('/')
+            const url = NEXT_BACKEND_URL + AUTH_SIGN_IN_URL;
+            try {
+                const response = await axios.post(url, formData)
+                if(response.data.success){
+                    localStorage.setItem('token', response.data.data);
+                    router.push('/')
+                } else{
+                    
+                }
+            } catch(error:any){
+                alert(error.response.data.err)
+            }
         }
     }
 
@@ -49,6 +63,7 @@ export function SigninComponent() {
             <div className="h-fit w-full flex flex-col justify-center items-center flex-shrink-0 gap-5">
                 <div>
                     <input
+                        type="text"
                         className="h-10 w-full outline-none focus:outline-zinc-500 rounded-md px-3 bg-zinc-800"
                         name='email'
                         value={formData.email}
@@ -59,6 +74,7 @@ export function SigninComponent() {
                 </div>
                 <div>
                     <input 
+                        type="password"
                         className="h-10 w-full outline-none focus:outline-zinc-500 rounded-md px-3 bg-zinc-800"
                         name="password"
                         value={formData.password}
