@@ -52,8 +52,8 @@ export function SigninComponent() {
                 } else{
                     
                 }
-            } catch(error:any){
-                alert(error.response.data.err)
+            } catch(error){
+                alert("Something went wrong")
             }
         }
     }
