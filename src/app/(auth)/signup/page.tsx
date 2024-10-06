@@ -10,7 +10,7 @@ const Signup = () => {
           <p>A place to share knowledge and better understand the world</p>
           <h3 className='text-2xl font-bold text-center underline text-red-600 font-serif'>Sign Up</h3>
           <SignupComponent />
-          <span className='font-medium'>Already have an account? <Link className='font-semibold text-red-600' href='/signin'>Sign in</Link></span> 
+          <span className='font-medium'>Already have an account? <Link className='font-semibold text-red-600 underline underline-offset-2' href='/signin'>Sign in</Link></span> 
       </div>
     </div>
   )

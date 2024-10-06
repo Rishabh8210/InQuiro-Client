@@ -1,14 +1,14 @@
 "use client"
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { z } from 'zod'
 
-import { NEXT_BACKEND_URL, AUTH_SIGN_IN_URL } from "@/utils/constant";
+import { NEXT_BACKEND_URL, AUTH_SIGN_IN_URL } from "@/constant/ResourceUrls";
 import axios from "axios";
 
 const formSchema = z.object({
     email: z.string().email(),
-    password: z.string().min(6, 'Password must be atleast 6 characters').max(50, 'Password is too long')
+    password: z.string().min(6, 'Password is too small').max(50, 'Password is too long')
 })
 
 type FormData = z.infer<typeof formSchema>
@@ -58,6 +58,13 @@ export function SigninComponent() {
         }
     }
 
+    useEffect(()=> {
+        const token = localStorage.getItem('token');
+        if(token){
+            router.push('/')
+        }
+    }, [router])
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="h-fit w-full flex flex-col justify-center items-center flex-shrink-0 gap-5">
@@ -70,7 +77,7 @@ export function SigninComponent() {
                         placeholder='Email'
                         onChange={handleChange}
                     />
-                    {errors.email && <p className="text-xs text-red-600 font-medium">{errors.email}</p>}
+                    {errors.email && <p className="text-xs text-red-600 font-semibold">{errors.email}</p>}
                 </div>
                 <div>
                     <input 
@@ -81,7 +88,7 @@ export function SigninComponent() {
                         placeholder="Password"
                         onChange={handleChange}
                     />
-                    {errors.password && <p className="text-xs text-red-600 font-medium">{errors.password}</p>}
+                    {errors.password && <p className="text-xs text-red-600 font-semibold">{errors.password}</p>}
                 </div>
                 <button className="bg-red-600 w-2/4 h-10 rounded-md text-lg font-bold">Sign in</button>
             </div>

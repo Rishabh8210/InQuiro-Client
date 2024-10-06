@@ -1,13 +1,13 @@
 "use client"
 import { z } from 'zod'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
     name: z.string().min(1, 'Name is required'),
     username: z.string().min(6, 'Username is too short').max(30, 'Username is too long'),
     email: z.string().email("Invalid email address"),
-    password: z.string().min(6, 'Password must be atleast 6 characters').max(50, 'Password is too long'),
+    password: z.string().min(6, 'Password is too small').max(50, 'Password is too long'),
     confirmPassword: z.string(),
 }).refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
@@ -60,6 +60,14 @@ export function SignupComponent() {
             router.push('/signin');
         }
     }
+
+    useEffect(()=> {
+        const token = localStorage.getItem('token');
+        if(token){
+            router.push('/')
+        }
+    }, [router])
+
     return (
         <form onSubmit={handleSubmit} >
             <div className="h-fit w-full flex flex-col justify-center items-center flex-shrink-0 gap-3">
@@ -72,7 +80,7 @@ export function SignupComponent() {
                         value={formData.name}
                         onChange={handleChange} 
                     />
-                    {errors.name && <p className='text-xs text-red-600 font-medium'>{errors.name}</p>}
+                    {errors.name && <p className='text-xs text-red-600 font-semibold'>{errors.name}</p>}
                 </div>
                 <div className='h-fit w-full flex flex-col gap-1'>
                     <input 
@@ -83,7 +91,7 @@ export function SignupComponent() {
                         value={formData.username}
                         onChange={handleChange}
                     />
-                    {errors.username && <p className='text-xs text-red-600 font-medium'>{errors.username}</p>}
+                    {errors.username && <p className='text-xs  text-red-600 font-semibold'>{errors.username}</p>}
                 </div>
                 <div className='h-fit w-full flex flex-col gap-1'>
                     <input 
@@ -94,7 +102,7 @@ export function SignupComponent() {
                         value={formData.email}
                         onChange={handleChange}
                     />
-                    {errors.email && <p className='text-xs text-red-600 font-medium'>{errors.email}</p>}
+                    {errors.email && <p className='text-xs  text-red-600 font-semibold'>{errors.email}</p>}
                 </div>
                 <div className='h-fit w-full flex flex-col gap-1'>
                     <input 
@@ -105,7 +113,7 @@ export function SignupComponent() {
                         value={formData.password}
                         onChange={handleChange}
                     />
-                    {errors.password && <p className='text-xs text-red-600 font-medium'>{errors.password}</p>}
+                    {errors.password && <p className='text-xs  text-red-600 font-semibold'>{errors.password}</p>}
                 </div>
                 <div className='h-fit w-full flex flex-col gap-1'>
                     <input 
@@ -116,7 +124,7 @@ export function SignupComponent() {
                         value={formData.confirmPassword}
                         onChange={handleChange}
                     />
-                    {errors.confirmPassword && <p className='text-xs text-red-600 font-medium'>{errors.confirmPassword}</p>}
+                    {errors.confirmPassword && <p className='text-xs  text-red-600 font-semibold'>{errors.confirmPassword}</p>}
                 </div>
                 <button className="bg-red-600 w-2/4 h-10 rounded-md text-lg font-bold">Sign up</button>
             </div>
