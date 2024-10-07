@@ -53,6 +53,7 @@ export function SigninComponent() {
                     
                 }
             } catch(error){
+                console.log("Something went wrong", error);
                 alert("Something went wrong")
             }
         }
