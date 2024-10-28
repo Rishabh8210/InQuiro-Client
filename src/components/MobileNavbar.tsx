@@ -37,10 +37,10 @@ export function SidebarMenu(props: HandleProps) {
                 <img className="dark:invert h-9 pointer" src="/closeButton.png" onClick={() => props.setTrigger()}/>
             </div>
             <ul className="h-fit flex flex-col justify-center items-center border-2 border-white border-opacity-40 rounded-md w-full ">
-                <li className="p-5 h-fit"><Link className= 'text-2xl text-red-600 font-semibold' href='/'>Home</Link></li>
-                <li className="p-5 h-fit"><Link className= 'text-2xl font-semibold' href='/following'>Following</Link></li>
-                <li className="p-5 h-fit"><Link className= 'text-2xl font-semibold' href='/answer'>Answer</Link></li>
-                <li className="p-5 h-fit"><Link className= 'text-2xl font-semibold' href='/notifications'>Notification</Link></li>
+                <li className="p-5 h-fit" onClick={() => props.setTrigger()} ><Link className= 'text-2xl text-red-600 font-semibold' href='/'>Home</Link></li>
+                <li className="p-5 h-fit" onClick={() => props.setTrigger()}><Link className= 'text-2xl font-semibold' href='/followings'>Following</Link></li>
+                <li className="p-5 h-fit" onClick={() => props.setTrigger()}><Link className= 'text-2xl font-semibold' href='/answer'>Answer</Link></li>
+                <li className="p-5 h-fit" onClick={() => props.setTrigger()}><Link className= 'text-2xl font-semibold' href='/notifications'>Notification</Link></li>
             </ul>
         </div>
     )

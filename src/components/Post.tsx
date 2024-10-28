@@ -24,7 +24,7 @@ export const Post = (postData: PostAttributes) => {
             <div className='h-fit w-full p-2 flex flex-col gap-3'>
                 {/* Post Content */}
                 <div>
-                    <p className='inine-block'>{resizeTextContent}{isContentLong && <Link className='text-blue-600 inline-block' href=''>(Show more)</Link>} </p>
+                    <p className='inine-block'>{resizeTextContent}{isContentLong && <Link className='text-blue-600 inline-block' href='/post/314123'>(Show more)</Link>} </p>
                 </div>
 
                 {/* Post Images */}

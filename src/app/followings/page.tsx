@@ -10,8 +10,8 @@ const page = () => {
                 <h1 className='text-[22px] font-semibold font-serif'>Followings</h1>
                 <div className='h-[80vh] w-full flex flex-col gap-5 overflow-y-auto'>
                     {
-                        peopleData.map((people) => {
-                            return <ProfileHeader {...people} />
+                        peopleData.map((people, ind) => {
+                            return <ProfileHeader {...people} key={ind}/>
                         })
                     }
                 </div>
