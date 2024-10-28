@@ -14,7 +14,7 @@ const ProfileDetailComponent = () => {
               <p className='opacity-50'>@rishabh8210</p>
               <div className='flex h-fit w-full gap-3'>
                 <p><Link className='font-semibold' href={'/followers'}>112 Followers</Link></p>
-                <p><Link className='font-semibold' href={'/following'}>120 Following</Link></p>
+                <p><Link className='font-semibold' href={'/followings'}>120 Following</Link></p>
               </div>
               <div className='h-fit pt-1 w-full flex items-center '>
                   <button className='h-10 w-24  rounded-lg text-md font-semibold border-2 bg-zinc-800 text-red-600'>Edit</button>
