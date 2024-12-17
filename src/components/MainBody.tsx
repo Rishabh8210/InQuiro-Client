@@ -15,7 +15,7 @@ export interface PostAttributes{
 
 export function MainBody() {
     return (
-        <div className='h-full w-full p-3 flex flex-col gap-5'>
+        <div className='h-full w-full p-3 flex flex-col gap-3'>
             <QuickPostShare />
             {
                 postData.map((data: PostAttributes, ind) => {

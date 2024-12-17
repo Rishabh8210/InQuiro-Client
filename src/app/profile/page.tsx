@@ -1,14 +1,17 @@
 import React from 'react'
 
-import { MobileNavbar } from '@/components/MobileNavbar'
 import ProfileDetailComponent from '@/components/ProfileDetailComponenet'
+import { HeaderComponent } from '@/components/HeaderComponent'
+
 const page = () => {
-  return (
-    <div className='min-h-screen w-full p-5 sticky top-0 flex flex-col'>
-        <MobileNavbar />
-        <ProfileDetailComponent />
-    </div>
-  )
+    return (
+        <>
+            <HeaderComponent />
+            <div className='min-h-[calc(100vh-4rem)] w-full p-5 flex flex-col'>
+                <ProfileDetailComponent />
+            </div>
+        </>
+    )
 }
 
 export default page
